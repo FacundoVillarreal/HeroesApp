@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link, Outlet, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, } from 'react-router-dom'
 import { AuthContext } from '../../auth/AuthContext'
 import { types } from '../../types/types'
 
@@ -7,6 +7,7 @@ export const NavBar = () => {
     const navigate = useNavigate()
 
     const { user: { name }, dispatch } = useContext(AuthContext);
+
     const handleClickLogout = () => {
         dispatch({
             type: types.logout
@@ -32,7 +33,6 @@ export const NavBar = () => {
                     </div>
                 </div>
             </nav>
-            <Outlet />
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../auth/AuthContext';
 import { types } from '../../types/types';
@@ -14,8 +14,12 @@ export const LoginScreen = () => {
       type: types.login
     }
     dispatch(action);
-    navigate('/')
+    const lastPathname = localStorage.getItem('lastPathname') || '/';
+    navigate(lastPathname);
   }
+
+
+
   return (
     <>
       <div className='container p-5'>

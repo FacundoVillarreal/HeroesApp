@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { getHeroById } from '../../selectors/getHeroById';
+import { NavBar } from '../ui/NavBar';
 
 export const HeroScreen = () => {
   const navigate = useNavigate();
@@ -25,31 +26,35 @@ export const HeroScreen = () => {
   }
 
   return (
-    <div className='container'>
+    <>
+      <NavBar />
 
-      <div className='row mt-5 '>
-        <div className='col-6'>
-          <img
-            src={`../assets/heroes/${heroeId}.jpg`}
-            alt={superhero}
-            className='img-thumbnail animate__animated animate__fadeInLeft'
-          />
-        </div>
-        <div className='col-6 p-0 animate__animated animate__fadeIn'>
-          <h3 className='card-title'> {superhero}</h3>
+      <div className='container'>
 
-          <ul className='list-group list-group-flush'>
-            <li className='list-group-item'><b>Alter ego:{alter_ego}</b></li>
-            <li className='list-group-item'><b>Publisher:{publisher}</b></li>
-            <li className='list-group-item'><b>First Appearance:{first_appearance}</b></li>
-          </ul>
+        <div className='row mt-5 '>
+          <div className='col-6'>
+            <img
+              src={`../assets/heroes/${heroeId}.jpg`}
+              alt={superhero}
+              className='img-thumbnail animate__animated animate__fadeInLeft'
+            />
+          </div>
+          <div className='col-6 p-0 animate__animated animate__fadeIn'>
+            <h3 className='card-title'> {superhero}</h3>
 
-          <h5>Characters</h5>
-          <p>{characters}</p>
+            <ul className='list-group list-group-flush'>
+              <li className='list-group-item'><b>Alter ego:{alter_ego}</b></li>
+              <li className='list-group-item'><b>Publisher:{publisher}</b></li>
+              <li className='list-group-item'><b>First Appearance:{first_appearance}</b></li>
+            </ul>
 
-          <button className='btn btn-dark' onClick={handleClickReturn}>Return</button>
+            <h5>Characters</h5>
+            <p>{characters}</p>
+
+            <button className='btn btn-dark' onClick={handleClickReturn}>Return</button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
